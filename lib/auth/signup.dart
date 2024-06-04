@@ -9,6 +9,9 @@ class signup extends StatefulWidget {
 
 class _signupState extends State<signup> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  String email = " ";
+  String password = " ";
+  // FirebaseAuth
 
   @override
   void initState() {
@@ -24,8 +27,28 @@ class _signupState extends State<signup> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          elevation: 8,
+          title: Text("Signup"),
+        ),
+        body: Container(
+          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          child: Form(
+            child: Column(children: [
+              TextFormField(
+                onChanged: (val) => setState(() {
+                  password = val;
+                }),
+              ),
+              RaisedButton(child: Text("Signup"), onPressed: () async => {})
+            ]),
+          ),
+        ));
+
+    /*Container(
       child: Text("Welcome to Twitter"),
-    );
+    );*/
   }
 }
